@@ -11,7 +11,7 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(28.0),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -27,8 +27,8 @@ class HomeViewBody extends StatelessWidget {
               'Best Seller',
               style: Styles.textStyle18,
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+            const SizedBox(
+              height: 20,
             ),
             const BestSellerItemOfListView(),
           ],
