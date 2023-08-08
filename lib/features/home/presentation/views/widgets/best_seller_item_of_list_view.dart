@@ -30,6 +30,7 @@ class BestSellerItemOfListView extends StatelessWidget {
           ),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Harry Potter and the Globet of Fire ',
@@ -38,6 +39,26 @@ class BestSellerItemOfListView extends StatelessWidget {
                   style: Styles.textStyle20.copyWith(
                     fontFamily: kGtSectraFine,
                   ),
+                ),
+                const SizedBox(
+                  height: 3.0,
+                ),
+                const Text(
+                  'J.K Rowling',
+                  style: Styles.textStyle14,
+                ),
+                const SizedBox(
+                  height: 3.0,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '19.99 \$',
+                      style: Styles.textStyle20.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
