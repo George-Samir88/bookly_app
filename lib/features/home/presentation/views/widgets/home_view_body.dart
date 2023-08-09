@@ -10,30 +10,66 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CustomAppBar(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomAppBar(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  ),
+                  const CustomListView(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                  ),
+                  const Text(
+                    'Best Seller',
+                    style: Styles.textStyle18,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
             ),
-            const CustomListView(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.05,
-            ),
-            const Text(
-              'Best Seller',
-              style: Styles.textStyle18,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const BestSellerItemOfListView(),
-          ],
-        ),
+          ),
+          // SliverToBoxAdapter(
+          //   child: BestSellerListView(),
+          // ), //when using sliverToBoxAdapter you are going to make listView shrinkWrap: true that's make listView create all item before showing which lose performance of app
+          //replace sliverToBoxAdapter with SliverFillRemaining
+          const SliverFillRemaining(
+            child: BestSellerListView(),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class BestSellerListView extends StatelessWidget {
+  const BestSellerListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 30.0, left: 30.0),
+      child: ListView.separated(
+          padding: EdgeInsets.zero,
+          physics: const NeverScrollableScrollPhysics(),
+          itemBuilder: (context, index) {
+            return const BestSellerItemOfListView();
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              height: 15.0,
+            );
+          },
+          itemCount: 15),
     );
   }
 }
