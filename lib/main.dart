@@ -18,8 +18,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: kPrimaryColor,
+        appBarTheme: const AppBarTheme().copyWith(
+          color: kPrimaryColor,
+          elevation: 0,
+        ),
         textTheme: GoogleFonts.montserratTextTheme(
-          ThemeData.dark().textTheme
+          ThemeData.dark().textTheme,
         ),
       ),
     );
