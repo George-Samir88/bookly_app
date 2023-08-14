@@ -1,4 +1,3 @@
-
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +13,8 @@ class CustomListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => const CustomBookItem(),
           separatorBuilder: (context, index) => SizedBox(
-            width: MediaQuery.of(context).size.width * 0.04,
-          ),
+                width: MediaQuery.of(context).size.width * 0.04,
+              ),
           itemCount: 10),
     );
   }
