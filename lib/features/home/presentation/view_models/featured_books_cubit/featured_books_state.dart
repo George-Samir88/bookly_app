@@ -16,5 +16,5 @@ class FeaturedBooksGetLoadingState extends FeaturedBooksState {}
 class FeaturedBooksGetFailureState extends FeaturedBooksState {
   final String error;
 
-  FeaturedBooksGetFailureState(this.error);
+  FeaturedBooksGetFailureState({required this.error});
 }

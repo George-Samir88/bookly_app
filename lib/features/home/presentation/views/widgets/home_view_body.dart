@@ -23,7 +23,7 @@ class HomeViewBody extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.04,
                   ),
-                  const CustomListView(),
+                  const FeaturedBooksListView(),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
