@@ -16,7 +16,10 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.19,
           ),
-          child: const CustomBookItem(),
+          child: const CustomBookItem(
+            imageUrl:
+                'https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg',
+          ),
         ),
         const SizedBox(
           height: 43,
