@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   const Text(
-                    'Best Seller',
+                    'Newest Books',
                     style: Styles.textStyle18,
                   ),
                   const SizedBox(

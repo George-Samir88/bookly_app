@@ -1,3 +1,4 @@
+import 'package:bookly_app/bloc_observer.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_routes.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
@@ -10,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   setupServiceLocator();
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NewestBooksCubit(
             getIt.get<HomeRepoImp>(),
-          ),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(

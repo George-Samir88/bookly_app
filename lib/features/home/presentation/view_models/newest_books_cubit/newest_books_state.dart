@@ -16,5 +16,5 @@ class NewestBooksGetLoadingState extends NewestBooksState {}
 class NewestBooksGetFailureState extends NewestBooksState {
   final String error;
 
-  NewestBooksGetFailureState(this.error);
+  NewestBooksGetFailureState({required this.error});
 }

@@ -9,7 +9,8 @@ class SearchResultListView extends StatelessWidget {
     return ListView.separated(
         physics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) {
-          return const BestSellerItemOfListView();
+          return  Text('data');
+          // return const BestSellerItemOfListView();
         },
         separatorBuilder: (context, index) {
           return const SizedBox(
