@@ -64,7 +64,7 @@ class HomeRepoImp implements HomeRepo {
     try {
       var data = await dioHelper.get(
           endPoint:
-              'v1/volumes?q=subject:Programming&Filtering=free-ebooks&Sorting=$category');
+              'v1/volumes?q=subject:Programming&Filtering=free-ebooks&Sorting=relevance');
       List<BookModel> books = [];
       for (var element in data['items']) {
         books.add(BookModel.fromJson(element));
