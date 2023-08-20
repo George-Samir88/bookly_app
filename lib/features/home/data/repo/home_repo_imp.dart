@@ -16,10 +16,15 @@ class HomeRepoImp implements HomeRepo {
     try {
       var data = await dioHelper.get(
           endPoint:
-              'v1/volumes?q=subject:Programming&Filtering=free-ebooks&Sorting=newest');
+              'v1/volumes?q=computer science&Filtering=free-ebooks&Sorting=newest');
       List<BookModel> books = [];
       for (var element in data['items']) {
-        books.add(BookModel.fromJson(element));
+        try {
+          books.add(BookModel.fromJson(element));
+        } catch (e) {
+          books.add(BookModel.fromJson(element));
+          debugPrint(e.toString());
+        }
       }
       return right(books);
     } catch (e) {
@@ -27,7 +32,8 @@ class HomeRepoImp implements HomeRepo {
         debugPrint('from home repo imp dio exception type is ${e.type}');
         debugPrint('from home repo imp dio exception error is ${e.error}');
         debugPrint('from home repo imp dio exception message is ${e.message}');
-        debugPrint('from home repo imp dio exception response is ${e.response}');
+        debugPrint(
+            'from home repo imp dio exception response is ${e.response}');
         return left(ServerFailure.fromDioException(dioException: e));
       }
       return left(ServerFailure(error: e.toString()));

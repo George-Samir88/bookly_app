@@ -23,7 +23,8 @@ class BestSellerItemOfListView extends StatelessWidget {
         child: Row(
           children: [
             CustomBookItem(
-                imageUrl: bookModel.volumeInfo!.imageLinks!.thumbnail!),
+                imageUrl: bookModel.volumeInfo?.imageLinks?.thumbnail ??
+                    'http://books.google.com/books/content?id=Tbk0EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
             const SizedBox(
               width: 30.0,
             ),
@@ -32,7 +33,7 @@ class BestSellerItemOfListView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${bookModel.volumeInfo!.title}',
+                    bookModel.volumeInfo?.title ?? '',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle20.copyWith(
@@ -43,7 +44,7 @@ class BestSellerItemOfListView extends StatelessWidget {
                     height: 3.0,
                   ),
                   Text(
-                    bookModel.volumeInfo!.authors![0],
+                    bookModel.volumeInfo?.authors?[0] ?? '',
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
