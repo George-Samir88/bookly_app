@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-AppBar customBookDetailsAppBar() => AppBar(
+AppBar customBookDetailsAppBar({required context}) => AppBar(
       leading: Padding(
         padding: const EdgeInsets.only(left: 30.0),
         child: IconButton(
           padding: EdgeInsets.zero,
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
           icon: const Icon(Icons.close),
         ),
       ),

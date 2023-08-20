@@ -18,14 +18,15 @@ class SimilarBookListView extends StatelessWidget {
             child: ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => const CustomBookItem(
-                      imageUrl:
+                itemBuilder: (context, index) => CustomBookItem(
+                      imageUrl: state.bookModel[index].volumeInfo?.imageLinks
+                              ?.thumbnail ??
                           'https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg',
                     ),
                 separatorBuilder: (context, index) => const SizedBox(
                       width: 10,
                     ),
-                itemCount: 10),
+                itemCount: state.bookModel.length),
           );
         } else if (state is SimilarBooksGetFailureState) {
           return CustomErrorWidget(error: state.error);
