@@ -31,7 +31,12 @@ class BestSellerListView extends StatelessWidget {
                 itemCount: state.books.length),
           );
         } else if (state is NewestBooksGetFailureState) {
-          return CustomErrorWidget(error: state.error.toString());
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 30.0,
+            ),
+            child: CustomErrorWidget(error: state.error.toString()),
+          );
         } else {
           return const CustomLoadingIndicator();
         }

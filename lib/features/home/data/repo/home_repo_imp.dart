@@ -4,11 +4,12 @@ import 'package:bookly_app/features/home/data/models/book_model/book_model.dart'
 import 'package:bookly_app/features/home/data/repo/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 class HomeRepoImp implements HomeRepo {
   final DioHelper dioHelper;
 
-  HomeRepoImp(this.dioHelper);
+  HomeRepoImp({required this.dioHelper});
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks() async {
@@ -23,9 +24,13 @@ class HomeRepoImp implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
+        debugPrint('from home repo imp dio exception type is ${e.type}');
+        debugPrint('from home repo imp dio exception error is ${e.error}');
+        debugPrint('from home repo imp dio exception message is ${e.message}');
+        debugPrint('from home repo imp dio exception response is ${e.response}');
+        return left(ServerFailure.fromDioException(dioException: e));
       }
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure(error: e.toString()));
     }
   }
 
@@ -41,9 +46,9 @@ class HomeRepoImp implements HomeRepo {
       return right(books);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFailure.fromDioException(e));
+        return left(ServerFailure.fromDioException(dioException: e));
       }
-      return left(ServerFailure(e.toString()));
+      return left(ServerFailure(error: e.toString()));
     }
   }
 }

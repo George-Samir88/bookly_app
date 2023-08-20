@@ -14,7 +14,7 @@ void setupServiceLocator() {
     ),
   );
   getIt.registerSingleton<HomeRepoImp>(
-    HomeRepoImp(
+    HomeRepoImp(dioHelper:
       getIt.get<DioHelper>(),
     ),
   );
